@@ -13,7 +13,7 @@
 
 ## Установка
 
-1. Скачайте `PowerTimer_0.8.0_Stable_Portable.zip` из Assets.
+1. Скачайте `PowerTimer_v0.8.0_Stable_Portable.zip` из Assets.
 2. Распакуйте ZIP и запустите `PowerTimer.exe`.
 3. Для безопасного знакомства включите **«Тестовый режим»**.
 
