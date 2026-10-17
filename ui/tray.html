@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a0b0d">
+  <title>PowerTimer — Меню</title>
+  <link rel="stylesheet" href="./tray.css">
+  <script src="./tray.js" defer></script>
+</head>
+<body>
+  <div class="tray-shell" role="group" aria-label="Меню PowerTimer">
+    <header class="tray-header">
+      <span class="brand-icon" aria-hidden="true">
+        <img src="./app-icon.png" alt="">
+      </span>
+      <div class="brand-label"><strong>PowerTimer</strong></div>
+      <span class="tray-version">0.8 RC3</span>
+    </header>
+
+    <div class="tray-status" role="status" aria-live="polite">
+      <span class="status-indicator" id="status-indicator"></span>
+      <span class="status-text"><strong id="tray-status">Таймер не запущен</strong><small id="tray-detail">Ожидание запуска</small></span>
+    </div>
+
+    <nav class="tray-actions" aria-label="Действия">
+      <button type="button" class="tray-button" id="tray-cancel" data-tray-action="cancel" disabled>
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 8l8 8M16 8l-8 8"/></svg>
+        <span>Отменить таймер</span>
+      </button>
+      <div class="tray-separator" role="separator"></div>
+      <button type="button" class="tray-button danger" data-tray-action="quit">
+        <svg viewBox="0 0 24 24"><path d="M12 2v10M5.6 5.9a9 9 0 1 0 12.8 0"/></svg>
+        <span>Выход</span>
+      </button>
+    </nav>
+  </div>
+</body>
+</html>

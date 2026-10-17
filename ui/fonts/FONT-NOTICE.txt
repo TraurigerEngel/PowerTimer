@@ -1,0 +1,4 @@
+PowerTimer GitHub source edition does not distribute binary font files.
+The UI uses Inter installed locally in Windows, with Segoe UI fallback.
+The original PowerTimer 0.8.0 Stable EXE is not rebuilt or changed.
+Inter license reference: https://openfontlicense.org/open-font-license-official-text/

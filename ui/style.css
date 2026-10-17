@@ -1,0 +1,369 @@
+/* GitHub source edition: installed Windows Inter, with system fallback. */
+@font-face{font-family:"Inter Embedded";src:local("Inter Regular"),local("Inter");font-style:normal;font-weight:400;font-display:swap}
+@font-face{font-family:"Inter Embedded";src:local("Inter Medium"),local("Inter");font-style:normal;font-weight:500;font-display:swap}
+@font-face{font-family:"Inter Embedded";src:local("Inter SemiBold"),local("Inter");font-style:normal;font-weight:600;font-display:swap}
+@font-face{font-family:"Inter Embedded";src:local("Inter Bold"),local("Inter");font-style:normal;font-weight:700;font-display:swap}
+@font-face{font-family:"Inter Embedded";src:local("Inter ExtraBold"),local("Inter");font-style:normal;font-weight:800;font-display:swap}
+:root{color-scheme:dark;--bg:#090a0f;--surface:#11121b;--surface2:#141520;--surface3:#1b1b29;--line:#272735;--text:#f3f0f8;--muted:#8e8a9e;--violet:#a784f9;--violet2:#7c55df;--pink:#e68fbc;--gold:#e7bd79;font:15px/1.45 "Inter Embedded","Segoe UI Variable","Segoe UI",Arial,sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);overflow:hidden;user-select:none}button,input{font:inherit}button{cursor:pointer}button:disabled{opacity:.38;cursor:not-allowed!important}button:focus-visible,input:focus-visible{outline:2px solid var(--violet);outline-offset:2px}.is-hidden{display:none!important}.svg-sprite{position:absolute;width:0;height:0;overflow:hidden}.ico{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.shell{width:100vw;height:100vh;min-width:1200px;min-height:680px;overflow:hidden;background:radial-gradient(ellipse 66% 50% at 75% -40%,#30224e44,transparent 85%),#0a0b10;position:relative;border:1px solid #22202e}
+.titlebar{height:47px;padding:0 0 0 22px;display:flex;align-items:center;border-bottom:1px solid #20212c;background:#0c0d13b0}.app-name{font-size:13px;font-weight:650;letter-spacing:.01em}.app-name strong{font-weight:650;color:#bb9cff}.titlebar-clock{margin-left:auto;display:flex;align-items:center;gap:7px;color:#b1a9c1;font-size:11.5px;font-weight:600;font-variant-numeric:tabular-nums}.titlebar-clock .ico{height:14px;width:14px;color:#9274c6}.window-buttons{margin-left:14px;display:flex;height:100%}.window-button{width:46px;border:0;background:transparent;color:#89849a;display:grid;place-items:center}.window-button:hover{background:#242334;color:#eee}.window-close:hover{background:#913c55;color:#fff}.window-button .ico{width:14px;height:14px}
+.main{height:calc(100% - 47px);padding:20px 28px 20px;display:flex;flex-direction:column;gap:15px}
+.body-layout{display:grid;grid-template-columns:1.04fr .96fr;gap:14px;min-height:0;flex:1}.column-left,.column-right{display:flex;flex-direction:column;gap:13px;min-height:0}.panel{background:linear-gradient(158deg,#151520,#11121a);border:1px solid var(--line);border-radius:15px;padding:15px 17px}.action-panel{height:185px;flex:none}.trigger-panel{flex:1;min-height:222px}.presets-panel{height:129px;flex:none}.settings-panel{flex:1;min-height:240px;padding-bottom:11px}.panel-heading{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:15px}.panel-heading.compact{margin-bottom:13px}.panel-heading-title{display:flex;align-items:center;gap:10px}.heading-icon{display:grid;place-items:center;width:32px;height:32px;border-radius:10px}.heading-icon.violet{color:#b89dfa;background:#302747}.heading-icon.pink{color:#ed9cc2;background:#392637}.heading-icon.gold{color:#e7c18d;background:#373027}.heading-icon .ico{width:16px;height:16px}.panel-heading h2{font-size:14px;margin:0 0 2px;font-weight:680}.panel-heading p{font-size:10px;margin:0;color:var(--muted)}.step-number{font-size:10px;font-weight:750;color:#665f78;margin-top:3px}
+.action-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.action-option{height:47px;border:1px solid #2b2938;border-radius:9px;background:#1a1b27;color:#b6b1c4;display:flex;align-items:center;text-align:left;padding:0 14px;gap:11px;font-size:11.5px;font-weight:600;transition:background .12s,border-color .12s,color .12s}.action-option .ico{width:17px;height:17px}.action-option:not(:disabled):hover{background:#252237;color:#eee8f7}.action-option.is-selected{background:#28203d;border-color:#795ab7;color:#eee5ff;box-shadow:inset 0 0 0 1px #795ab720}.action-option.is-selected .ico{color:#bf9eff}
+.trigger-tabs{height:34px;background:#10111a;border:1px solid #2b2b38;border-radius:9px;display:flex;gap:3px;padding:3px;margin-bottom:17px}.trigger-option{border:0;background:transparent;border-radius:6px;color:#9691a4;font-size:10px;flex:1;font-weight:600;white-space:nowrap}.trigger-option:not(:disabled):hover{color:#ddd}.trigger-option.is-selected{color:#e7d9ff;background:#413059;box-shadow:0 1px 5px #0003}.trigger-fields{display:flex;align-items:flex-end;gap:14px}.field-block{flex:1;min-width:0;display:flex;flex-direction:column;gap:6px;color:#a9a3b5;font-size:10px;font-weight:650}.field-block.wide{flex:0 0 43%}.stepper{height:38px;display:flex;align-items:center;border:1px solid #363344;background:#11111b;border-radius:9px;overflow:hidden}.stepper:focus-within{border-color:#9d7de1}.stepper button{width:30px;height:100%;border:0;background:transparent;color:#a7a0b7;font-size:19px}.stepper button:hover:not(:disabled){background:#292339;color:#fff}.stepper input{background:transparent;color:#f2eef9;min-width:0;width:100%;text-align:center;border:0;outline:0!important;font-size:14px;font-weight:690;font-variant-numeric:tabular-nums;-moz-appearance:textfield;appearance:textfield}.stepper input::-webkit-inner-spin-button,.stepper input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}.text-input{height:38px;line-height:38px;width:100%;border:1px solid #353346;border-radius:9px;background:#11111b;color:#eee;font-size:13px;padding:0 12px}.hint{font-size:10.5px;color:#858093;max-width:250px;padding-bottom:6px}
+.preset-row{display:grid;grid-template-columns:repeat(6,1fr);gap:6px}.preset-row button{height:33px;border:1px solid #393243;border-radius:8px;background:#1c1b28;color:#cfc6db;font-size:10px;font-weight:650;white-space:nowrap}.preset-row button:not(:disabled):hover{background:#352845;color:#f0e9fa}.preset-row button.active{background:#332746;border-color:#8f6ec8;color:#fff}.preset-row .preset-gold{color:var(--gold);border-color:#594a35;background:#29231d}.settings-list{display:flex;flex-direction:column}.setting-line{min-height:48px;display:flex;align-items:center;gap:12px;border-bottom:1px solid #262530;cursor:pointer}.setting-icon{height:26px;width:26px;border-radius:8px;background:#242130;color:#9c8fb6;display:grid;place-items:center}.setting-icon .ico{width:15px;height:15px}.setting-content{display:flex;flex-direction:column;gap:1px;flex:1}.setting-content strong{font-size:11.5px;font-weight:660}.setting-content small{font-size:10px;color:var(--muted)}.switch{width:33px;height:19px;display:block;position:relative}.switch input{position:absolute;opacity:0;width:100%;height:100%;cursor:pointer}.switch span{display:block;width:33px;height:19px;border-radius:11px;background:#393847;transition:background .15s}.switch span:after{content:"";position:absolute;width:13px;height:13px;top:3px;left:3px;border-radius:50%;background:#c8c5ce;transition:transform .15s}.switch input:checked+span{background:#8059c4}.switch input:checked+span:after{transform:translateX(14px);background:#fff}.switch input:focus-visible+span{outline:2px solid #c4a2ff;outline-offset:2px}.warning-setting{display:flex;justify-content:space-between;align-items:center;padding-top:13px;gap:10px}.warning-setting>div:first-child{display:flex;flex-direction:column;gap:2px}.warning-setting strong{font-size:11px}.warning-setting span{color:var(--muted);font-size:10px}.warning-stepper{width:130px;height:34px}.warning-stepper input{font-size:12px}.warning-stepper .unit{font-size:9px;color:#8f879a;margin-right:9px}.telemetry{height:52px;flex:none;display:grid;grid-template-columns:1fr 1fr;gap:10px}.telemetry>div{background:#11121b;border:1px solid #252633;border-radius:11px;display:flex;align-items:center;justify-content:space-between;padding:0 14px}.telemetry span{display:flex;align-items:center;gap:7px;color:#9993a8;font-size:10px}.telemetry .ico{width:15px;height:15px;color:#a08ec7}.telemetry strong{font-size:13px;color:#f0eaf7;font-variant-numeric:tabular-nums}
+.footer-panel{height:88px;flex:none;padding:14px 17px 13px;background:linear-gradient(100deg,#191627,#14131f);border:1px solid #342c46;border-radius:15px;display:flex;align-items:center;gap:22px}.footer-status{flex:1;min-width:0}.status-heading{display:flex;gap:9px;align-items:center}.status-heading strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12.5px}.pill{background:#352c20;color:#edcc87;border-radius:6px;padding:3px 7px;font-size:9px;letter-spacing:.04em;font-weight:800}.pill.running{color:#d6b9ff;background:#402b5c}.pill.warning{color:#ffd3d8;background:#603040}.pill.error{color:#ffa9b6;background:#582733}.pill.completed{color:#ccf4de;background:#204437}.status-detail{font-size:10px;color:#958da9;margin-top:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.progress-track{margin-top:9px;background:#30283b;height:4px;border-radius:4px;overflow:hidden}.progress-track>div{height:100%;width:0;background:linear-gradient(90deg,#9f76ef,#dfa0d0);border-radius:4px;transition:width .35s}.footer-actions{display:flex;gap:9px}.btn{height:40px;border-radius:10px;padding:0 20px;font-size:11.5px;font-weight:750;border:1px solid transparent;white-space:nowrap}.btn-secondary{background:#252232;border-color:#453d55;color:#ddd5e9}.btn-secondary:not(:disabled):hover{background:#3c314d}.btn-primary{display:flex;align-items:center;justify-content:center;gap:7px;background:linear-gradient(110deg,#8860d5,#a075e9);color:white;border-color:#a17deb;min-width:151px;box-shadow:0 5px 18px #7046bc23}.btn-primary:hover:not(:disabled){filter:brightness(1.12)}.btn-primary .ico{width:16px;height:16px}
+.overlay{position:absolute;inset:0;z-index:20;background:#07060dcf;backdrop-filter:blur(7px);display:grid;place-items:center}.modal{width:410px;padding:26px 28px 24px;border-radius:17px;border:1px solid #55416f;background:linear-gradient(145deg,#211c30,#13131c);box-shadow:0 25px 85px #0009;text-align:center}.modal-icon{width:47px;height:47px;background:#403052;color:#d4b3ff;border-radius:14px;display:grid;place-items:center;margin:0 auto 17px}.modal-icon .ico{width:24px;height:24px}.modal-kicker{font-size:9px;letter-spacing:.19em;font-weight:800;color:#ad8ae9}.modal h2{font-size:19px;line-height:1.3;margin:7px 0}.modal p{margin:0;color:#aba2bb;font-size:12px}.countdown{font-size:65px;color:#f1c684;font-weight:800;line-height:1.2;margin:8px 0;font-variant-numeric:tabular-nums}.countdown-caption{font-size:11px;color:#a59cb4}.modal-buttons{display:flex;gap:9px;justify-content:center;margin:23px 0 14px}.modal-buttons .btn{min-width:150px}.modal .shortcut-note{color:#7e758e;font-size:10px}.toast{position:absolute;z-index:30;right:25px;bottom:120px;max-width:390px;background:#372637;border:1px solid #b06a83;border-radius:10px;padding:10px 14px;color:#f6dce3;box-shadow:0 12px 35px #0008}.preview-note{position:absolute;z-index:8;bottom:0;left:0;right:0;text-align:center;padding:5px;font-size:10px;background:#56344b;color:#fff}
+
+/* 0.7.3 Comfort & Readability — 1200 × 680, larger embedded Inter typography. */
+.titlebar{height:51px;padding-left:24px}
+
+
+.app-name,.app-name strong{font-size:15px;font-weight:700}
+
+.titlebar-clock{font-size:13px;gap:8px}
+.titlebar-clock .ico{height:16px;width:16px}
+.window-button{width:49px}
+.main{height:calc(100% - 51px);padding:19px 28px;gap:14px}
+.body-layout{grid-template-columns:1.04fr .96fr;gap:16px}
+.column-left,.column-right{gap:14px}
+.panel{border-radius:16px;padding:18px 20px}
+.action-panel{height:218px}
+.trigger-panel{min-height:240px}
+.presets-panel{height:146px}
+.settings-panel{min-height:245px;padding:12px 19px 12px}
+.settings-panel .panel-heading.compact{margin-bottom:8px}
+.panel-heading{margin-bottom:16px}
+.panel-heading.compact{margin-bottom:12px}
+.panel-heading-title{gap:12px}
+.heading-icon{width:36px;height:36px;border-radius:11px}
+.heading-icon .ico{width:18px;height:18px}
+.panel-heading h2{font-size:16px;margin-bottom:3px;font-weight:700}
+.panel-heading p{font-size:12px}
+.step-number{font-size:11px}
+.action-grid{gap:10px}
+.action-option{height:55px;font-size:13.5px;padding:0 15px;gap:12px;border-radius:10px}
+.action-option .ico{width:19px;height:19px}
+.trigger-tabs{height:40px;margin-bottom:18px;gap:4px;padding:4px;border-radius:10px}
+.trigger-option{font-size:12px;font-weight:650}
+.trigger-fields{gap:16px}
+.field-block{font-size:12px;gap:8px}
+.stepper{height:45px;border-radius:10px}
+.stepper button{width:38px;font-size:22px}
+.stepper input{font-size:17px}
+.text-input{height:45px;font-size:15px;line-height:45px}
+.hint{font-size:12px;max-width:270px}
+.preset-row{gap:8px}
+.preset-row button{height:40px;font-size:11.5px;border-radius:9px}
+.setting-line{min-height:43px;gap:13px}
+.setting-icon{width:29px;height:29px}
+.setting-icon .ico{width:16px;height:16px}
+.setting-content strong{font-size:13px;font-weight:670}
+.setting-content small{font-size:11.5px}
+.switch,.switch span{width:37px;height:21px}
+.switch span{border-radius:13px}
+.switch span:after{width:15px;height:15px}
+.switch input:checked+span:after{transform:translateX(16px)}
+.warning-setting{padding-top:8px}
+.warning-setting strong{font-size:13px}
+.warning-setting span{font-size:11.5px}
+.warning-stepper{width:145px;height:37px}
+.warning-stepper input{font-size:15px}
+.warning-stepper .unit{font-size:11px;margin-right:10px}
+.telemetry{height:55px;gap:12px}
+.telemetry>div{padding:0 16px;border-radius:12px}
+.telemetry span{font-size:12px}
+.telemetry .ico{width:17px;height:17px}
+.telemetry strong{font-size:15px}
+.footer-panel{height:94px;padding:15px 18px;gap:16px;border-radius:16px}
+.footer-status{min-width:200px}
+.status-heading{gap:10px}
+.status-heading strong{font-size:14px}
+.status-detail{font-size:11.5px;margin-top:5px}
+.pill{font-size:10px;padding:4px 8px}
+.progress-track{height:5px;margin-top:10px}
+.progress-track>div{background:linear-gradient(90deg,#8e69e6,#c99bea);box-shadow:0 0 8px #9874df70}
+.footer-actions{gap:10px}
+.btn{height:46px;font-size:13px;padding:0 21px;border-radius:11px}
+.btn-primary{min-width:175px}
+.remaining-time{flex:none;min-width:148px;border:1px solid #45365d;background:linear-gradient(135deg,#292039,#1b1728);border-radius:11px;padding:9px 14px;display:flex;flex-direction:column;justify-content:center;gap:1px}
+.remaining-time span{font-size:10.5px;font-weight:750;letter-spacing:.08em;color:#bda3e4}
+.remaining-time strong{font-size:22px;line-height:1.25;font-weight:750;font-variant-numeric:tabular-nums;color:#f3e8ff;letter-spacing:.015em}
+.footer-panel.is-running{border-color:#574275}
+.footer-panel.is-warning{border-color:#a36673}
+.footer-panel.is-warning .remaining-time{border-color:#a36673;background:#36202c}
+.footer-panel.is-warning .remaining-time strong{color:#ffcfda}
+.modal{width:445px}
+.modal-kicker{font-size:11px}
+.modal h2{font-size:21px}
+.modal p{font-size:13px}
+.countdown-caption{font-size:13px}
+.modal .shortcut-note{font-size:11px}
+.preview-note{font-size:11px}
+
+/* 0.7.4 — button interaction parity with Kinoteka / Igroteka / Budget.
+   The real Windows titlebar controls stay stationary like native buttons. */
+button:focus:not(:focus-visible){outline:none}
+button:focus-visible{outline:2px solid rgba(190,151,255,.76);outline-offset:2px}
+.action-option:not(:disabled),.trigger-option:not(:disabled),.preset-row button:not(:disabled),
+.stepper button:not(:disabled),.btn:not(:disabled){
+  transition:transform .12s ease, background-color .16s ease, border-color .16s ease,
+    color .16s ease, box-shadow .16s ease, filter .16s ease;
+  transform-origin:center;
+}
+@media (hover:hover) and (pointer:fine){
+  .action-option:not(:disabled):hover,.trigger-option:not(:disabled):hover,
+  .preset-row button:not(:disabled):hover,.btn:not(:disabled):hover{transform:translateY(-1px)}
+  .action-option.is-selected:not(:disabled):hover{background:#34294b;border-color:#a17ade;color:#fff}
+  .trigger-option.is-selected:not(:disabled):hover{background:#513665;color:#fff}
+  .preset-row button.active:not(:disabled):hover{background:#47315f;border-color:#ab8adc}
+  .preset-row .preset-gold:not(:disabled):hover{background:#3c3025;border-color:#b18a4d;color:#ffe0a3}
+  .stepper button:not(:disabled):hover{background:#302640;color:#fff}
+  .setting-line:not(:has(input:disabled)):hover .switch span{box-shadow:0 0 0 3px rgba(171,129,239,.12)}
+}
+.action-option:not(:disabled):active,.trigger-option:not(:disabled):active,
+.preset-row button:not(:disabled):active,.btn:not(:disabled):active{transform:translateY(1px) scale(.985)}
+.stepper button:not(:disabled):active{transform:scale(.86);background:#47345e}
+.window-button{transition:background-color .14s ease,color .14s ease;transform:none!important}
+.window-button:active{background:#34304a;color:#fff}
+.window-close:active{background:#ab4563;color:#fff}
+.window-button:focus-visible{outline:2px solid rgba(190,151,255,.72);outline-offset:-3px}
+.switch span{transition:background-color .15s ease,box-shadow .15s ease}
+.switch input:active+span{box-shadow:0 0 0 3px rgba(170,123,234,.2)}
+.switch input:disabled+span{opacity:.55;box-shadow:none}
+.setting-line:has(input:disabled){cursor:not-allowed;opacity:.65}
+.setting-line:has(input:disabled) .switch input{cursor:not-allowed}
+@media (prefers-reduced-motion:reduce){
+  .action-option,.trigger-option,.preset-row button,.stepper button,.btn,.window-button,
+  .switch span,.switch span:after{transition:none!important;transform:none!important}
+}
+
+/* Drag decorative titlebar artwork as one region; controls remain clickable. */
+.titlebar .titlebar-clock svg{pointer-events:none}
+
+/* 0.7.5 — no native light border or shadow, keep the frame entirely dark. */
+.shell{border:0;box-shadow:none;outline:0;background:#0a0b10}
+.titlebar{border-top:0;box-shadow:none;cursor:default}
+.titlebar [data-tauri-drag-region]{cursor:default}
+.window-buttons,.window-button{cursor:default}
+
+/* 0.7.7 — centre the title against the entire 1200px window, not the
+   space between the clock and window buttons.  Pointer events go to the
+   drag-enabled titlebar; the clock and window controls remain accessible. */
+.titlebar{position:relative;padding-left:0}
+.titlebar .app-name{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  margin:0;white-space:nowrap;pointer-events:none;text-align:center;font-size:16px;font-weight:700}
+
+
+
+
+/* RC2: each Rust tick arrives roughly every 500ms. Slightly overlapping linear
+   interpolation keeps the progress bar moving without stair-step pauses. */
+.progress-track>div{transition:width 650ms linear;will-change:width}
+@media (prefers-reduced-motion:reduce){.progress-track>div{transition:none!important;will-change:auto}}
+
+
+/* 0.8.0 RC3 — Monochrome base with intentionally limited violet/pink/gold accents.
+   Existing layout dimensions, visual motion and timer behavior stay untouched. */
+:root {
+  --bg:#090a0c;
+  --surface:#121316;
+  --surface2:#17181c;
+  --surface3:#202127;
+  --line:#303138;
+  --text:#f8f8fa;
+  --muted:#a7a9b2;
+  --violet:#ae8bf5;
+  --violet2:#8356d5;
+  --pink:#efa0ca;
+  --gold:#f0c77f;
+}
+body{background:#090a0c;color:var(--text)}
+.shell{background:#090a0c}
+.titlebar{background:#0d0e11;border-bottom-color:#292a30}
+.app-name{color:#f7f7fa}
+.titlebar-clock{color:#d0d1d7}
+.titlebar-clock .ico{color:#aa8be8}
+.window-button{color:#a4a5ac}
+.window-button:hover{background:#24252b;color:#fff}
+.window-close:hover{background:#51263c;color:#fff}
+.window-button:active{background:#33343a}
+.window-close:active{background:#71324f}
+.panel{background:#141519;border-color:#303137}
+.panel-heading h2{color:#f7f7f9}
+.panel-heading p,.step-number{color:#a5a7b0}
+.heading-icon.violet{background:#2b2140;color:#c4a9ff}
+.heading-icon.pink{background:#38232e;color:#f0a1c6}
+.heading-icon.gold{background:#342b1e;color:#f1c47e}
+.action-option{background:#1a1b20;border-color:#34353e;color:#e3e3e9}
+.action-option:not(:disabled):hover{background:#24252c;color:#fff}
+.action-option.is-selected{background:#2b203c;border-color:#a27be6;color:#fff;box-shadow:inset 0 0 0 1px #a27be62c}
+.action-option.is-selected .ico{color:#c8adff}
+.trigger-tabs{background:#0c0d10;border-color:#35353d}
+.trigger-option{color:#bdc0c8}
+.trigger-option:not(:disabled):hover{color:#fff}
+.trigger-option.is-selected{color:#fff;background:#47315f;box-shadow:none}
+.field-block{color:#d2d3d9}
+.stepper,.text-input{background:#0f1013;border-color:#3a3b45;color:#f8f8fa}
+.stepper input{color:#fff}
+.stepper button{color:#c5c5cf}
+.stepper button:hover:not(:disabled){background:#27232e;color:#fff}
+.hint{color:#a9abb5}
+.preset-row button{background:#191a1e;border-color:#373841;color:#e2e3e7}
+.preset-row button:not(:disabled):hover{background:#26212e;color:#fff}
+.preset-row button.active{background:#302040;border-color:#a27be6;color:#fff}
+.preset-row .preset-gold{background:#262017;border-color:#705937;color:#f0c77f}
+.setting-line{border-bottom-color:#2c2d32}
+.setting-icon{background:#222329;color:#b9b9c5}
+.setting-content strong{color:#f6f6f8}
+.setting-content small,.warning-setting span{color:#aaaab4}
+.switch span{background:#3f4049}
+.switch span:after{background:#eeeef0}
+.switch input:checked+span{background:#9162e1}
+.warning-setting strong{color:#f5f5f7}
+.warning-stepper .unit{color:#afb1b9}
+.telemetry>div{background:#131417;border-color:#303137}
+.telemetry span{color:#b7b9c2}
+.telemetry .ico{color:#b09ad5}
+.telemetry strong{color:#fafafa}
+.footer-panel{background:#16171b;border-color:#34353c}
+.status-heading strong{color:#f9f9fb}
+.status-detail{color:#b5b5bd}
+.pill{background:#362a19;color:#f2c780}
+.pill.running{background:#34234b;color:#e1c7ff}
+.pill.warning{background:#46232e;color:#ffbed7}
+.pill.error{background:#48232f;color:#ffc2d2}
+.pill.completed{background:#1f3930;color:#b9ebd3}
+.progress-track{background:#303139}
+.progress-track>div{background:linear-gradient(90deg,#986be5,#e99abb);box-shadow:none}
+.footer-panel.is-running{border-color:#69518b}
+.footer-panel.is-warning{border-color:#9b5872}
+.remaining-time{background:#1c1923;border-color:#534268}
+.remaining-time span{color:#cdb2f2}
+.remaining-time strong{color:#fff}
+.footer-panel.is-warning .remaining-time{background:#2d1c25;border-color:#a55e80}
+.footer-panel.is-warning .remaining-time strong{color:#ffd1df}
+.btn-secondary{background:#24252b;border-color:#44454e;color:#f3f3f5}
+.btn-secondary:not(:disabled):hover{background:#31323a}
+/* Launch / confirm: a stable, truly centered text+icon unit, including
+   Windows/WebView2 font metrics. Keep the typography legible at 1200x680. */
+.btn-primary{
+  background:linear-gradient(115deg,#7950cb,#9c65da);
+  border:1px solid #b48af4;
+  color:#fff;
+  font-size:14px;
+  font-weight:750;
+  line-height:1;
+  letter-spacing:0;
+  box-shadow:none;
+  text-shadow:none;
+  min-width:200px;
+  height:46px;
+  padding:0 19px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  vertical-align:middle;
+}
+.btn-primary .ico{width:19px;height:19px;flex:0 0 19px}
+.btn-primary:not(:disabled):hover{background:linear-gradient(115deg,#875ad9,#ae79e7);filter:none;box-shadow:0 4px 16px #00000035}
+.btn-primary:not(:disabled):active{background:linear-gradient(115deg,#7347bd,#905acb);box-shadow:none}
+#start-btn .button-content{display:inline-flex;align-items:center;justify-content:center;gap:10px;white-space:nowrap;line-height:1}
+#start-btn .button-label{display:inline-block;line-height:1.15;white-space:nowrap}
+.modal{background:#19191e;border-color:#564068}
+.modal-icon{background:#30233e;color:#d9b8ff}
+.modal-kicker{color:#c6a6f3}
+.modal p,.modal .shortcut-note{color:#b4b3bf}
+.countdown{color:#f0c77f}
+.countdown-caption{color:#d0c7d4}
+.toast{background:#30202a;border-color:#b77597;color:#ffe6ef}
+.preview-note{background:#393039}
+@media (hover:hover) and (pointer:fine){
+  .action-option.is-selected:not(:disabled):hover{background:#38274b;border-color:#bd9bf4}
+  .trigger-option.is-selected:not(:disabled):hover{background:#563674}
+  .preset-row button.active:not(:disabled):hover{background:#423052;border-color:#ba97ee}
+  .preset-row .preset-gold:not(:disabled):hover{background:#382b1a;border-color:#b99354;color:#ffe1a8}
+  .stepper button:not(:disabled):hover{background:#302838}
+}
+
+
+/* 0.8.0 RC3 — restrained graphite-glass transparency, mirroring the
+   layered monochrome surfaces of Kinoteka / Igroteka / Budget.
+   Deliberately NO backdrop-filter on interactive controls: Win11 WebView2
+   compositor may flicker while dragging, animating or switching views. */
+:root{
+  --glass-panel:rgba(20,21,24,.74);
+  --glass-panel-deep:rgba(13,14,17,.72);
+  --glass-input:rgba(12,13,16,.78);
+  --glass-line:rgba(240,242,255,.105);
+}
+.shell{
+  background:
+    radial-gradient(ellipse 52% 63% at 5% 100%,rgba(142,106,188,.085),transparent 75%),
+    radial-gradient(ellipse 47% 63% at 97% 9%,rgba(185,104,147,.06),transparent 77%),
+    linear-gradient(150deg,#0b0c0e,#07080a);
+}
+.titlebar{background:rgba(7,8,11,.80);border-bottom-color:rgba(255,255,255,.075)}
+.panel{
+  background:linear-gradient(155deg,var(--glass-panel),var(--glass-panel-deep));
+  border-color:var(--glass-line);
+  box-shadow:0 8px 26px rgba(0,0,0,.12);
+}
+.action-option{background:rgba(31,32,37,.72);border-color:rgba(238,239,250,.105)}
+.action-option:not(:disabled):hover{background:rgba(43,42,49,.86)}
+.action-option.is-selected{background:rgba(81,52,117,.43);border-color:rgba(170,128,237,.76)}
+.trigger-tabs{background:rgba(9,10,13,.72);border-color:rgba(238,239,250,.11)}
+.trigger-option.is-selected{background:rgba(101,66,139,.69)}
+.stepper,.text-input{background:var(--glass-input);border-color:rgba(240,242,255,.14)}
+.preset-row button{background:rgba(30,31,36,.7);border-color:rgba(239,239,250,.13)}
+.preset-row button:not(:disabled):hover{background:rgba(54,45,64,.79)}
+.preset-row button.active{background:rgba(94,59,123,.56);border-color:rgba(166,127,238,.79)}
+.preset-row .preset-gold{background:rgba(81,62,29,.39);border-color:rgba(224,177,100,.40)}
+.setting-line{border-bottom-color:rgba(241,241,250,.075)}
+.setting-icon{background:rgba(75,75,86,.25)}
+.telemetry>div{
+  background:rgba(16,17,20,.74);
+  border-color:var(--glass-line);
+  box-shadow:0 5px 18px rgba(0,0,0,.09);
+}
+.footer-panel{
+  background:linear-gradient(120deg,rgba(27,26,32,.76),rgba(16,17,21,.70));
+  border-color:rgba(240,242,255,.12);
+  box-shadow:0 8px 24px rgba(0,0,0,.13);
+}
+.footer-panel.is-running{border-color:rgba(161,127,232,.52)}
+.footer-panel.is-warning{border-color:rgba(232,140,174,.60)}
+.remaining-time{background:rgba(43,32,53,.57)}
+.btn-secondary{background:rgba(46,46,53,.68);border-color:rgba(238,239,250,.135)}
+.btn-secondary:not(:disabled):hover{background:rgba(57,56,65,.88)}
+.modal{
+  background:linear-gradient(155deg,rgba(27,26,31,.97),rgba(15,16,20,.97));
+  border-color:rgba(187,144,243,.4);
+}
+/* Keep the foreground crisp: alpha surfaces are composited over an opaque
+   graphite base rather than making the entire desktop window transparent. */
+.panel,.telemetry>div,.footer-panel,.titlebar,.tray-shell{backdrop-filter:none;-webkit-backdrop-filter:none}
+
+
+/* 0.8.0 RC4 — soft polish: slightly stronger glass effect and calmer footer actions. */
+.titlebar{background:rgba(13,14,17,.68);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.panel{background:linear-gradient(180deg,rgba(20,21,25,.78),rgba(15,16,19,.72));border-color:rgba(255,255,255,.10);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.footer-panel{background:linear-gradient(100deg,rgba(22,23,27,.78),rgba(18,19,23,.70));border-color:rgba(255,255,255,.10);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.telemetry>div{background:rgba(19,20,23,.74);border-color:rgba(255,255,255,.09);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.trigger-tabs,.stepper,.text-input,.action-option,.preset-row button{backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.action-option,.preset-row button,.stepper,.text-input{background-color:rgba(17,18,22,.78)}
+.btn-secondary{background:rgba(36,37,43,.72);border-color:#50525d;color:#d7d8de}
+.btn-secondary:not(:disabled):hover{background:rgba(49,50,58,.86)}
+.btn-secondary:disabled{opacity:.58;background:rgba(34,35,40,.64);border-color:#4b4d56;color:#b6b7be}
+.btn-primary{background:linear-gradient(115deg,rgba(96,74,154,.94),rgba(124,96,184,.94));border-color:#8e78bf;color:#fcfcfe;box-shadow:0 6px 18px rgba(0,0,0,.22)}
+.btn-primary:not(:disabled):hover{background:linear-gradient(115deg,rgba(107,83,168,.96),rgba(134,105,196,.96));box-shadow:0 8px 20px rgba(0,0,0,.25)}
+.btn-primary:not(:disabled):active{background:linear-gradient(115deg,rgba(84,64,137,.96),rgba(113,87,171,.96));box-shadow:0 3px 10px rgba(0,0,0,.18)}
+
+
+/* 0.8.0 RC5 — restrained purple ONLY for the main Start Timer button.
+   All other buttons, including the warning modal's confirmation, retain RC4.
+   Contrast of #f7f5fc against the lightest end #785bab is about 5.0:1. */
+#start-btn{background:linear-gradient(115deg,#674b9a,#785bab);border-color:#8872b3;color:#f7f5fc;text-shadow:none}
+#start-btn:not(:disabled):hover{background:linear-gradient(115deg,#7355a6,#8160b2);border-color:#a28bca;color:#f7f5fc;filter:none}
+#start-btn:not(:disabled):active{background:linear-gradient(115deg,#593f8b,#6b4d9b);border-color:#8068a8;color:#f7f5fc}

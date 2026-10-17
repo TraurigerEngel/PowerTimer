@@ -1,0 +1,78 @@
+@font-face{font-family:InterMini;src:local('Inter Regular'),local('Inter');font-weight:400;font-display:swap}
+@font-face{font-family:InterMini;src:local('Inter Medium'),local('Inter');font-weight:500;font-display:swap}
+@font-face{font-family:InterMini;src:local('Inter SemiBold'),local('Inter');font-weight:600;font-display:swap}
+@font-face{font-family:InterMini;src:local('Inter Bold'),local('Inter');font-weight:700;font-display:swap}
+:root{font-family:InterMini,'Segoe UI',sans-serif;font-size:13px;color:#f3effc;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;width:100vw;height:100vh;background:#10111a;overflow:hidden;user-select:none}
+.tray-shell{height:100%;padding:13px 14px 10px;background:linear-gradient(160deg,#15131f 0%,#10111a 75%);border:1px solid #3a304a;display:flex;flex-direction:column}
+.tray-header{display:flex;align-items:center;gap:11px;padding:2px 2px 12px}
+.brand-icon{width:35px;height:35px;display:grid;place-items:center;color:#c6aaff;background:#302440;border:1px solid #5b4776;border-radius:10px;flex:none}
+svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.brand-icon svg{width:21px;height:21px}
+.brand-label{display:flex;flex:1;flex-direction:column;gap:2px;min-width:0}
+.brand-label strong{font-size:13.5px;white-space:nowrap}
+.brand-label strong span{color:#b79af3}
+
+.tray-version{background:#211c30;padding:5px 7px;border-radius:6px;font-size:10px;color:#a18acb}
+.tray-status{min-height:59px;border:1px solid #393048;background:#211b2d;border-radius:11px;display:flex;align-items:center;gap:10px;padding:9px 12px}
+.status-indicator{width:8px;height:8px;border-radius:50%;background:#bfa16d;flex:none;box-shadow:0 0 0 3px #bfa16d1c}
+.status-indicator.running{background:#a681f3;box-shadow:0 0 0 3px #a681f32c}
+.status-indicator.warning{background:#f3a1ad;box-shadow:0 0 0 3px #f3a1ad2c}
+.status-text{display:flex;flex-direction:column;gap:2px;min-width:0}
+.status-text strong{font-size:12px;max-width:275px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}
+.status-text small{color:#a89fbb;font-size:10.5px;max-width:275px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}
+.tray-actions{display:flex;flex-direction:column;gap:3px;padding-top:9px}
+.tray-button{display:flex;align-items:center;gap:11px;width:100%;min-height:40px;border:1px solid transparent;border-radius:9px;text-align:left;padding:0 11px;color:#dcd5e9;background:transparent;font:600 12px InterMini,'Segoe UI',sans-serif;transition:background-color .14s,border-color .14s,transform .12s;cursor:pointer}
+.tray-button svg{width:16px;height:16px;color:#a799c2;flex:none}
+.tray-button span{flex:1}
+.tray-button small{color:#9d85cb;font-size:13px}
+.tray-button.primary{background:#2d2142;color:#f0e4ff;border-color:#644990}
+.tray-button.primary svg{color:#bea3fa}
+.tray-button.danger svg{color:#d48da5}
+.tray-button:disabled{cursor:not-allowed;opacity:.36;transform:none!important}
+.tray-button:not(:disabled):hover{background:#30273f;border-color:#55436b}
+.tray-button.primary:not(:disabled):hover{background:#423056;border-color:#9775c9}
+.tray-button.danger:not(:disabled):hover{background:#452634;border-color:#794154;color:#ffcad3}
+.tray-button:not(:disabled):active{transform:translateY(1px) scale(.985)}
+.tray-button:focus-visible{outline:2px solid #a78af0;outline-offset:-2px}
+.tray-separator{margin:4px 8px;height:1px;background:#302a3b}
+
+@media(prefers-reduced-motion:reduce){.tray-button{transition:none!important;transform:none!important}}
+
+/* 0.7.6 compact two-action tray menu, official app icon. */
+.brand-icon{border:none;background:none;border-radius:9px;overflow:hidden;padding:0}
+.brand-icon img{width:35px;height:35px;object-fit:contain;display:block}
+
+
+/* 0.7.7 — no tray subtitle/footer; status and actions fill the compact popup. */
+.tray-shell{padding-bottom:12px}
+.tray-header{padding-bottom:11px}
+.brand-label{justify-content:center}
+
+/* RC3: match the main window's black/white visual hierarchy. */
+:root{color:#f7f7fa}
+body{background:#0a0b0d}
+.tray-shell{background:#111216;border-color:#303138}
+.brand-label strong{color:#fbfbfd}
+.tray-version{background:#24202b;color:#c7b0ed}
+.tray-status{background:#1b1c20;border-color:#373841}
+.status-text small{color:#b5b5bf}
+.tray-button{color:#eeeeF2}
+.tray-button svg{color:#b5b5c0}
+.tray-button.danger svg{color:#ee9cbc}
+.tray-button:not(:disabled):hover{background:#25242b;border-color:#44444e}
+.tray-button.danger:not(:disabled):hover{background:#39222d;border-color:#74455c;color:#ffe3ee}
+.tray-separator{background:#32333a}
+
+
+/* RC3 glass parity with the main UI, without WebView2 blur/flicker. */
+.tray-shell{
+  background:linear-gradient(160deg,rgba(23,24,28,.91),rgba(12,13,16,.88));
+  border-color:rgba(246,244,255,.13);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.035);
+}
+.tray-status{background:rgba(40,39,47,.54);border-color:rgba(240,240,255,.12)}
+.tray-version{background:rgba(84,53,112,.29)}
+.tray-separator{background:rgba(255,255,255,.10)}
+.tray-shell,.tray-status,.tray-button{backdrop-filter:none;-webkit-backdrop-filter:none}

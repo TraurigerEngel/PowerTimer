@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+<defs>
+ <linearGradient id="tile" x1="0.03" y1="0.04" x2=".92" y2=".98" gradientUnits="objectBoundingBox"><stop stop-color="#5e178e"/><stop offset=".3" stop-color="#43116d"/><stop offset=".75" stop-color="#210c3e"/><stop offset="1" stop-color="#170b30"/></linearGradient>
+ <linearGradient id="border" x1="0.04" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox"><stop stop-color="#e895f3"/><stop offset=".4" stop-color="#7933bf"/><stop offset="1" stop-color="#39125f"/></linearGradient>
+ <linearGradient id="dial" x1=".14" y1=".02" x2=".91" y2=".96" gradientUnits="objectBoundingBox"><stop stop-color="#fff2d7"/><stop offset=".28" stop-color="#f8d4ed"/><stop offset=".61" stop-color="#efa3dc"/><stop offset="1" stop-color="#aa66d9"/></linearGradient>
+ <linearGradient id="inner" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox"><stop stop-color="#2d1051"/><stop offset="1" stop-color="#4e1b74"/></linearGradient>
+ <linearGradient id="gold" x1=".1" y1="0" x2=".9" y2="1" gradientUnits="objectBoundingBox"><stop stop-color="#fff0a8"/><stop offset=".5" stop-color="#f4c761"/><stop offset="1" stop-color="#c47a39"/></linearGradient>
+ <filter id="shadow" x="-35%" y="-40%" width="170%" height="185%"><feGaussianBlur stdDeviation="13"/></filter>
+ <filter id="shine"><feGaussianBlur stdDeviation="4"/></filter>
+ </defs>
+ <!-- outer transparent corners, no glow outside the tile -->
+ <rect x="26" y="26" width="460" height="460" rx="111" fill="#0a0520" opacity="0.5"/>
+ <rect x="21" y="21" width="470" height="470" rx="112" fill="url(#tile)" stroke="url(#border)" stroke-width="5"/>
+ <path d="M56 164 Q53 55 177 49 H355 Q447 48 466 141" fill="none" stroke="#bb67e8" stroke-opacity=".25" stroke-width="9" stroke-linecap="round" />
+ <path d="M78 427 Q256 499 435 418" fill="none" stroke="#09031c" stroke-opacity=".4" stroke-width="17" />
+ <!-- accessory top right gold button -->
+ <g transform="rotate(37 372 143)"><rect x="349" y="121" width="45" height="48" rx="13" fill="#2e0d40" opacity=".8"/><rect x="347" y="116" width="42" height="47" rx="12" fill="url(#gold)" stroke="#ffe9ab" stroke-width="3"/></g>
+ <!-- top crown -->
+ <rect x="207" y="91" width="99" height="49" rx="18" fill="#1e093c" opacity=".8" transform="translate(0 7)"/>
+ <rect x="207" y="88" width="99" height="45" rx="16" fill="url(#gold)" stroke="#ffe8ae" stroke-width="3"/>
+ <rect x="219" y="93" width="75" height="8" rx="4" fill="#fff4ce" opacity=".65"/>
+ <!-- depth and ring -->
+ <circle cx="257" cy="285" r="157" fill="#09051a" opacity=".5" filter="url(#shadow)"/>
+ <circle cx="256" cy="281" r="152" fill="#2b1049" stroke="#d77df5" stroke-width="11"/>
+ <circle cx="256" cy="277" r="137" fill="url(#inner)" stroke="url(#dial)" stroke-width="46"/>
+ <circle cx="256" cy="277" r="111" fill="#281047" stroke="#7b3aa6" stroke-width="3"/>
+ <!-- gentle gloss along upper ring -->
+ <path d="M152 222 A113 113 0 0 1 360 222" fill="none" stroke="#fff4ec" stroke-opacity=".46" stroke-width="9" stroke-linecap="round"/>
+ <!-- tick marks -->
+ <g stroke="#e7b4ee" stroke-width="8" stroke-linecap="round" opacity=".88"><path d="M256 172v16"/><path d="M256 366v16"/><path d="M156 277h16"/><path d="M340 277h16"/></g>
+ <!-- gold central hand -->
+ <path d="M256 277 L319 213" stroke="#190826" stroke-width="27" stroke-linecap="round"/>
+ <path d="M256 277 L319 213" stroke="url(#gold)" stroke-width="17" stroke-linecap="round"/>
+ <path d="M256 277 V210" stroke="#1b092c" stroke-width="24" stroke-linecap="round"/>
+ <path d="M256 277 V210" stroke="#ffda85" stroke-width="14" stroke-linecap="round"/>
+ <circle cx="256" cy="277" r="21" fill="#fff1cc" stroke="#c18b48" stroke-width="6"/>
+ <circle cx="256" cy="277" r="8" fill="#e7a957"/>
+ </svg>

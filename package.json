@@ -1,0 +1,16 @@
+{
+  "name": "powertimer-tauri",
+  "private": true,
+  "version": "0.8.0",
+  "description": "PowerTimer — portable Windows timer with Tauri 2",
+  "scripts": {
+    "dev": "tauri dev",
+    "build": "tauri build --no-bundle",
+    "bundle": "tauri build",
+    "test": "node --test tests/*.test.mjs",
+    "check": "node --check ui/app.js && node --check ui/tray.js && node --test tests/*.test.mjs"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.0.0"
+  }
+}
